@@ -68,14 +68,24 @@ The response is a JSON object conforming to the `ProcessingResult` schema
 ## Project structure
 
 ```
-src/
-  models.py      -- Pydantic schemas (SchemaInfo, ProcessingResult, ...)
-  discovery.py   -- Dynamic schema classification, generation, and registry
-  extractor.py   -- Gemini vision extraction engine (accepts any schema)
-  main.py        -- FastAPI application with POST /process-document
-data/            -- Sample PDFs for testing
-requirements.txt -- Python dependencies
-.env.example     -- Template for environment variables
+doc-intel-pipeline/
+├── .env.example                      # Template for GOOGLE_API_KEY
+├── .gitignore                        # Excludes .env, __pycache__, schema_registry.json
+├── README.md                         # Setup, usage, and architecture overview
+├── requirements.txt                  # Python dependencies
+│
+├── data/
+│   ├── case_interview_dataset.pdf    # Multi-page sample (3 pages)
+│   └── case_interview_hank.pdf       # Single-page sample
+│
+├── src/
+│   ├── __init__.py
+│   ├── models.py                     # Pydantic schemas (SchemaInfo, ProcessingResult, ...)
+│   ├── discovery.py                  # Schema classification, LLM generation, registry I/O
+│   ├── extractor.py                  # Gemini vision extraction (dynamic prompt from schema)
+│   └── main.py                       # FastAPI app with POST /process-document
+│
+└── schema_registry.json              # [runtime] Auto-created for novel document types
 ```
 
 `schema_registry.json` is created at runtime when the pipeline encounters
