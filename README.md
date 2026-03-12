@@ -15,7 +15,7 @@ python -m venv .venv
 pip install -r requirements.txt
 
 # 3. Configure your Google API key
-copy .env.example .env
+cp .env.example .env
 # Edit .env and paste your key from https://aistudio.google.com/apikey
 
 # 4. Run the API server
@@ -59,6 +59,7 @@ curl -X POST http://127.0.0.1:8000/process-document ^
 
 The response is a JSON object conforming to the `ProcessingResult` schema
 (see `src/models.py`), containing:
+
 - **`metadata`** -- extracted data (client names, invoice amounts, dates, tax
   registration numbers, line items, etc.)
 - **`schema_used`** -- the schema that was applied (predefined, discovered,
@@ -86,8 +87,8 @@ meeting_minutes). It is git-ignored.
 Detailed architectural notes are embedded as module-level docstrings in
 `src/extractor.py` and `src/main.py`. A summary:
 
-| Pillar       | Approach                                                                                   |
-| ------------ | ------------------------------------------------------------------------------------------ |
-| **Search**   | Embed extracted chunks into a vector DB (Pinecone, Weaviate, pgvector) for RAG-based Q&A.  |
+| Pillar         | Approach                                                                                     |
+| -------------- | -------------------------------------------------------------------------------------------- |
+| **Search**     | Embed extracted chunks into a vector DB (Pinecone, Weaviate, pgvector) for RAG-based Q&A.    |
 | **Automation** | Wrap the extraction call in an Airflow/Prefect/Dagster DAG for end-to-end ETL orchestration. |
-| **Insights** | Flatten JSON into star-schema tables; connect Power BI / Tableau for live dashboards.       |
+| **Insights**   | Flatten JSON into star-schema tables; connect Power BI / Tableau for live dashboards.        |
