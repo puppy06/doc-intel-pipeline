@@ -1,5 +1,5 @@
 """
-Pydantic schemas for the Claims Document Intelligence Pipeline.
+Pydantic schemas for the Document Intelligence Pipeline.
 
 These models enforce strict typing so that extracted data is immediately
 ready for downstream querying (SQL/DataFrame joins) and audit-trail

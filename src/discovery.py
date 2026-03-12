@@ -1,5 +1,5 @@
 """
-Dynamic Schema Discovery for the Claims Document Intelligence Pipeline.
+Dynamic Schema Discovery for the Document Intelligence Pipeline.
 
 Classifies incoming documents and, for previously unseen types, generates
 a bespoke JSON schema on-the-fly via LLM.  Discovered schemas are persisted

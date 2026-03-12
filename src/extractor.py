@@ -1,5 +1,5 @@
 """
-Extraction engine for the Claims Document Intelligence Pipeline.
+Extraction engine for the Document Intelligence Pipeline.
 
 Uses Google Gemini as a Vision-Language Model to process PDF pages rendered
 as images, returning structured data that conforms to a schema provided at

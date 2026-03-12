@@ -1,5 +1,5 @@
 """
-FastAPI application for the Claims Document Intelligence Pipeline.
+FastAPI application for the Document Intelligence Pipeline.
 
 Provides a single endpoint that accepts a PDF upload, discovers the
 appropriate extraction schema, runs the Gemini extraction engine, and
@@ -87,7 +87,7 @@ async def lifespan(app: FastAPI):
 # ---------------------------------------------------------------------------
 
 app = FastAPI(
-    title="Claims Document Intelligence Pipeline",
+    title="Document Intelligence Pipeline",
     summary="Automated extraction of structured metadata from legal-claims documents.",
     version="0.2.0",
     lifespan=lifespan,
