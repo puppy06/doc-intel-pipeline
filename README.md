@@ -1,7 +1,6 @@
-# Claims Document Intelligence Pipeline
+# Document Intelligence Pipeline
 
-Automated ingestion and structured extraction of legal-claims documents
-(invoices, contracts, emails) using Google Gemini as a Vision-Language Model.
+Automated ingestion and structured extraction of documents (invoices, contracts, emails) using Google Gemini as a Vision-Language Model.
 
 ## Quick start
 
